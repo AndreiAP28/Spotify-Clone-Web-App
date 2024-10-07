@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+
+{% block body %}
+<div class="container-fluid" id="gradient_background" {% if details %} style =" padding-bottom: 120px;" {% endif %}>
+    {% if category == 'artists' %}
+        <div class="row py-2">
+            <div class="col-12">
+                <h2 class="text-light fw-bold" style="text-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);">
+                    Your top artists
+                </h2>
+            </div>  
+        </div>
+
+        <div class="row d-flex justify-content-center gx-md-4 py-4">
+            {% for artist in data %}
+            <div class="col-md-2">
+                <button type="button" class="top-artist-btn my-3">
+                    <div class="card bg-transparent card-header-userprofile">
+                        <img src="{{artist['cover_url']}}" alt="COVER" class="card-imgs img-fluid"
+                            style="border-radius: 50%; width: auto; height: 200px;">
+                        <div class="class-body card-body-shadow" style=" width: 200px; box-shadow:none;">
+                            <p class="card-title cards-text text-start fw-semibold text-light ms-1 mb-0 mt-2">
+                                {{artist['name']}}
+                            </p>
+                            <p class="card-subtitle text-start ms-1 text-secondary">
+                                Artist
+                            </p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+
+    {% elif category == 'tracks' %}
+        <div class="row py-2">
+            <div class="col-12">
+                <h2 class="text-light fw-bold" style="text-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);">
+                    Your top songs
+                </h2>
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center gx-md-4">
+            <div class="list-group list-group-flush">
+                {% for track in data %}
+
+                <a href="" class="list-group-item list-group-item-action" onclick="playSong('{{track.uri}}')">
+                    <div class="row" style="width: 100%;">
+                        <div class="col-4 d-flex align-items-start justify-content-start">
+                            <img src="{{track['cover_url']}}" alt="COVER" class="list-img img-fluid">
+                            <div style="display:block;">
+                                <p class="fw-semibold text-light ms-1 mb-0 mt-2 button-text">
+                                    {{track['track_name']}}
+                                </p>
+                                <p class="ms-1 text-secondary">
+                                    {{track['artist']}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center align-items-center">
+                            <span class="fw-semibold" style="color:#1db954">
+                                {{track['album_name']}}
+                            </span>
+                        </div>
+                        <div class="col-4 d-flex justify-content-end align-items-center">
+                            <span class="text-semibold" style="color:#1db954">
+                                {{track['duration']}}
+                            </span>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+
+    {% elif category == 'your-playlists' %}
+        <div class="row py-2">
+            <div class="col-6">
+                <h2 class="text-light fw-bold" style="text-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);">
+                    Your Playlists
+                </h2>
+            </div>
+        </div>
+        <div class="row  mx-5 d-flex justify-content-center">
+            {% for playlist in data %}
+            <div class="col-2 py-4">
+                <button type="button" class="cards-btn">
+                    <div class="card bg-transparent card-header-shadow">
+                        <img src="{{playlist['img']}}" alt="COVER" class="card-img-top card-imgs">
+                        <div class="class-body card-body-shadow">
+                            <p class="card-title cards-text text-center fw-semibold text-light mb-0 mt-2">
+                                {{playlist['name']}}
+                            </p>
+                            <p class="card-subtitle text-center text-secondary">
+                                {{playlist['owner']}}
+                            </p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+
+    {% elif category == 'liked-playlists' %}
+        <div class="row py-2">
+            <div class="col-6">
+                <h2 class="text-light fw-bold" style="text-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);">
+                    Liked Playlists
+                </h2>
+            </div>
+        </div>
+        <div class="row mx-5 d-flex justify-content-center">
+            {% for playlist in data %}
+            <div class="col-2 py-4">
+                <button type="button" class="cards-btn">
+                    <div class="card bg-transparent card-header-shadow">
+                        <img src="{{playlist['img']}}" alt="COVER" class="card-img-top card-imgs">
+                        <div class="class-body card-body-shadow">
+                            <p class="card-title cards-text text-center fw-semibold text-light mb-0 mt-2">
+                                {{playlist['name']}}
+                            </p>
+                            <p class="card-subtitle text-center text-secondary">
+                                {{playlist['owner']}}
+                            </p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+
+
+      

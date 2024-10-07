@@ -1,0 +1,132 @@
+{% extends "layout.html" %}
+
+{% block title %}
+User Profile
+{% endblock %}
+
+
+{% block body %}
+<div class="container-fluid" id="gradient_background">
+    <div class="row">
+        <div class="col-2">
+
+        </div>
+        <div class="col">
+            <span class="text-light" style="font-size:20px; font-family:'Audiowide';">Profile</span>
+        </div>
+    </div>
+    <div class=" row d-flex justify-content-start align-items-center">
+        <div class="col-md-2">
+            <img src={{profile_pic}} alt="PROFILE PIC" class="big_profile_pic img-fluid">
+        </div>
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-12">
+                    <span class="text-light fw-bold userprofile_username">
+                        {{username}}
+                    </span>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-12">
+                    <span class="text-light" style="font-size:20px; font-family:'Audiowide';">
+                        {{followers}} followers • {{following}} following
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--TOP ARTISTS ROW-->
+    <div class="row mt-5">
+        <div class="col-6">
+            <h2 class="text-light fw-bold" style="text-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);">
+                Your top artists
+            </h2>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+            <button type="button" class="bg-transparent" onclick="showAll('artists')" style="border:none;">
+                <a href="{{url_for('see_all', category = 'artists' )}}" class="text-md-end text-white-50 me-2 my-2 fw-bold a-see-all">
+                    See All
+                </a>
+            </button>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center gx-md-4 mt-4">
+        {% for artist in top_artists %}
+        <div class="col-md-2">
+            <button type="button" class="top-artist-btn" onclick="ObjectProfile('artist' , '{{artist.id}}')">
+                <a href="/artist/{{ artist['id'] }}">
+                    <div class="card bg-transparent card-header-userprofile">
+                        <img src="{{artist['cover_url']}}" alt="COVER" class="card-imgs img-fluid"
+                            style="border-radius: 50%;">
+                        <div class="class-body card-body-shadow" style=" width: 200px; box-shadow:none;">
+                            <p class="card-title cards-text text-start fw-semibold text-light ms-1 mb-0 mt-2">
+                                {{artist['name']}}
+                            </p>
+                            <p class="card-subtitle text-start ms-1 text-secondary">
+                                Artist
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!--TOP songs ROW-->
+    <div class="row mt-5">
+        <div class="col-6">
+            <h2 class="text-light fw-bold" style="text-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);">
+                Your top songs
+            </h2>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+            <button type="button" class="bg-transparent" onclick= "showAll('tracks')" style="border:none;">
+                <a href="{{url_for('see_all', category = 'tracks' )}}" class="text-md-end text-white-50 me-2 my-2 fw-bold a-see-all">
+                    See All
+                </a>
+            </button>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center gx-md-4 mt-4 pb-4" {% if details %} style="margin-bottom:100px;" {% endif %}>
+        <div class="list-group list-group-flush">
+            {% for track in top_tracks %}
+            <a href="" class="list-group-item list-group-item-action" onclick = "playSong('{{ track.uri }}')">
+                <div class="row" style="width: 100%;">
+                    <div class="col-4 d-flex align-items-start justify-content-start">
+                        <img src="{{track['cover_url']}}" alt="COVER" class="list-img img-fluid">
+                        <div style="display:block;">
+                            <p class="fw-semibold text-light ms-1 mb-0 mt-2 button-text">
+                                {{track['track_name']}}
+                            </p>
+                            <p class="ms-1 text-secondary">
+                                {{track['artist']}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-4 d-flex justify-content-center align-items-center">
+                        <span class="fw-semibold" style = "color:#1db954">
+                            {{track['album_name']}}
+                        </span>
+                    </div>
+                    <div class="col-4 d-flex justify-content-end align-items-center">
+                        <span class="text-semibold" style = "color:#1db954">
+                            {{track['duration']}}
+                        </span>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+

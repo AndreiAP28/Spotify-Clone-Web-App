@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+
+{% block body %}
+<div class="container-fluid pt-4" id="gradient_background">
+    <div class="row d-flex justify-content-center align-items-center mb-4 gx-0 ">
+        {% for recent in recently_info %}
+        <div class="col-6 col-sm-6 col-xl-3 col-md-6 col-lg-3 mb-0">
+            <button type="button" class="btn" onclick = "ObjectProfile('{{ recent.type }}', '{{ recent.id }}')">
+                <a href="/{{ recent['type'] }}/{{ recent['id'] }}">
+                    <div class="d-flex align-items-center">
+                        <img src="{{ recent['cover'] }}" width="60px" height="60px"
+                            style="border-radius:10px 0 0 10px; box-shadow: 4px 0 8px rgba(0, 0, 0, 0.9);">
+                        <span class="button-text ms-2 fw-bold text-light">
+                            {{ recent['album_playlist_name'] }}
+                        </span>
+                    </div>
+                </a>
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="row mb-4 mt-5">
+        <div class="col-6">
+            <h2 class="text-light fw-bold" style="text-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);">
+                Your Playlists
+            </h2>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+            <button type="button" class="bg-transparent" onclick="showAll('your-playlists') "style="border:none;">
+                <a href="{{url_for('see_all', category = 'your-playlists' )}}" class="text-md-end text-white-50 me-2 my-2 fw-bold a-see-all">
+                    See All
+                </a>
+            </button>
+        </div>
+    </div>
+    <div class="row mt-4 mb-5 mx-5">
+        {% for playlist in your_playlists %}
+        <div class="col-2">
+            <button type="button" class="cards-btn" onclick = "ObjectProfile('playlist', '{{playlist.id}}')">
+                <a href="/playlist/{{ playlist['id'] }}">
+                <div class="card bg-transparent card-header-shadow">
+                    <img src="{{playlist['img']}}" alt="COVER" class="card-img-top card-imgs">
+                    <div class="class-body card-body-shadow">
+                        <p class="card-title cards-text text-center fw-semibold text-light mb-0 mt-2">
+                            {{playlist['name']}}
+                        </p>
+                        <p class="card-subtitle text-center text-secondary">
+                            {{playlist['owner']}}
+                        </p>
+                    </div>
+                </div>
+                </a>
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row mb-4" style = "margin-top: 125px;">
+        <div class="col-6">
+            <h2 class="text-light fw-bold" style="text-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);">
+                Liked Playlists
+            </h2>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+            <button type="button" class="bg-transparent" onclick="showAll('liked-playlists') "style="border:none;">
+                <a href="{{url_for('see_all', category = 'liked-playlists' )}}" class="text-md-end text-white-50 me-2 my-2 fw-bold a-see-all">
+                    See All
+                </a>
+            </button>
+        </div>
+    </div>
+
+    <div class="row mt-4 mx-5" {% if details %} style="margin-bottom:100px; padding-bottom:120px;" {% else %} style = " padding-bottom: 40px;"{% endif %}>
+        {% for playlist in liked_playlists %}
+        <div class="col-2">
+            <button type="button" class="cards-btn" onclick = "ObjectProfile('playlist', '{{playlist.id}}' )">
+                <a href="/playlist/{{ playlist['id'] }}">
+                    <div class="card bg-transparent card-header-shadow">
+                        <img src="{{playlist['img']}}" alt="COVER" class="card-img-top card-imgs">
+                        <div class="class-body card-body-shadow">
+                            <p class="card-title cards-text text-center fw-semibold text-light mb-0 mt-2">
+                                {{playlist['name']}}
+                            </p>
+                            <p class="card-subtitle text-center text-secondary">
+                                {{playlist['owner']}}
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+{% endblock %}
+
+{% set player_details = details %}

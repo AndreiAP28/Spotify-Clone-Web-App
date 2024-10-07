@@ -1,0 +1,11 @@
+.progressbar{ 
+    width: 500px;
+    height: 3em;
+    background-color: #111;
+    border-radius: 1.5em;
+    color: white;
+}
+
+.progressbar::before {
+    content: attr(aria-label);
+}

@@ -1,0 +1,322 @@
+::-webkit-scrollbar {
+  background-image: linear-gradient(#434343, #191414);
+}
+
+#navbar_layout {
+  background-image: linear-gradient(#191414, #434343);
+}
+
+#gradient_background {
+  background-image: linear-gradient(#434343, #191414);
+  height: 100%;
+  min-height: 100vh;
+}
+
+#gradient_index {
+  background-image: linear-gradient(#434343, #191414);
+  height: 100vh;
+}
+
+#scrollbar {
+  overflow-x: hidden;
+}
+
+.navbar-font {
+  color: #1db954;
+  font-family: "Audiowide", sans-serif;
+}
+
+#navbar-username-font {
+  color: #1db954;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+.text {
+  font-size: 20px;
+  letter-spacing: 20px;
+  font-family: audiowide;
+  border-right: 5px solid;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s steps(18), cursor 0.4s step-end infinite alternate;
+}
+
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+#profile_pic {
+  margin-right: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+
+#profile-btn {
+  margin-right: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/*class used for adding shadow for playlists' covers but not when I am USING*/
+.show-covers {
+  border-radius: 15px;
+  margin-right: 10px;
+  margin-left: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+
+/*CSS PT CARDS*/
+.cards-shadow {
+  border-radius: 15px;
+  width: 150px;
+  height: 150px;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+
+.card-header-shadow {
+  border-radius: 15px;
+  border: none;
+  width: 150px;
+  height: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+
+.card-body-shadow {
+  border-radius: 0 0 15px 15px;
+  border: none;
+  width: 150px;
+  height: 150px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+
+.card-imgs {
+  border-radius: 15px 15px 0 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cards-btn {
+  border-radius: 15px;
+  border: 0;
+  margin-bottom: 50%;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.cards-text {
+  font-size: 15px;
+  font-family: sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card:hover {
+  transform: scale(1.07);
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+/* FINISH CSS CLASSES/IDS CARDS*/
+
+/*BUTTON CLASSES FOR THE HOME.HTML BUTTONS THAT ARE AT THE BEGINNING */
+.btn {
+  width: 22vw;
+  padding: 0;
+  margin: 10px;
+  border-radius: 10px;
+  transition: none;
+  border: none;
+  background-color: rgba(102, 99, 99, 0.4);
+}
+
+.btn:hover {
+  background-color: rgba(150, 150, 150, 0.679);
+}
+.image-button {
+  height: 100%;
+}
+
+.button-text {
+  font-size: 15px;
+  font-family: sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*
+FINISHED HERE!!
+*/
+
+/*
+USERPROFILE.HTML 
+*/
+
+.big_profile_pic {
+  width: 220px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+
+.userprofile_username {
+  font-size: 50px;
+  font-family: "Audiowide";
+  margin-left: 10px;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+
+.top-artist-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.top-artist-btn {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.card-header-userprofile {
+  height: 300px;
+  width: 200px;
+  border: none;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.9);
+  border-radius: 50% 50% 15px 15px;
+}
+
+/*
+USERPROFILE TOP TRACKS
+*/
+
+.list-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
+
+.list-group-item {
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease;
+  border-color: rgba(102, 99, 99, 0.4);
+}
+
+.list-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+}
+
+.list-group-item:hover {
+  background-color: rgba(150, 150, 150, 0.378);
+}
+
+.a-see-all {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  text-decoration: none;
+}
+
+.a-see-all:hover {
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*
+OBJECTPROFILE
+*/
+
+.profiletype_name {
+  font-size: 80px;
+  font-family: "Audiowide";
+  margin-left: 10px;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+
+.object-img-profile {
+  width: 100%;
+  height: auto;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+
+.text-songs-data {
+  font-size: 15px;
+  font-family: sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*
+PLAYER TEMPLATE
+*/
+
+#fixed-player {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  left: 0;
+  background-image: linear-gradient(#434343, #191414);
+  border-top: 1px solid rgba(150, 150, 150, 0.378);
+  z-index: 1000;
+}
+
+.player-btn {
+  color: #1db954;
+  font-size: 1.4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+
+.player-btn-bg button{
+  width: 2.5em;
+  height: 2.5em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.player-btn-bg button:hover .player-btn {
+  color: rgba(253, 245, 245, 0.679);
+  transform: scale(1.2);
+}
+
+
+.player-btn-bg button:hover {
+  background: rgba(29, 185, 84, 0.679);
+  transform: scale(1.2);
+}
+
+.text-player {
+  font-size: 14px;
+  font-family: sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
